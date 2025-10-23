@@ -1,0 +1,107 @@
+[gd_scene load_steps=8 format=3 uid="uid://duv5og2tyismn"]
+
+[ext_resource type="PackedScene" uid="uid://cpwk0qxaoinxg" path="res://Game/Player.tscn" id="1_ef5c4"]
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_ef5c4"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_86sos"]
+size = Vector2(467, 289)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ef5c4"]
+size = Vector2(467, 334)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_u4uqp"]
+size = Vector2(1000, 600)
+
+[sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_ef5c4"]
+polygon = PackedVector2Array(-294, 208, 380, 210, 387, 303, -293, 303)
+
+[sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_u4uqp"]
+polygon = PackedVector2Array(-289, 213, -74, 213, 177, 171, 643, 170, 643, -102, 1648, -99, 1644, 502, -291, 502)
+
+[node name="DemoLevel" type="Node2D"]
+
+[node name="ColorRect" type="ColorRect" parent="."]
+material = SubResource("CanvasItemMaterial_ef5c4")
+offset_left = -582.0
+offset_top = -367.0
+offset_right = 2873.0
+offset_bottom = 1142.0
+color = Color(0.19076213, 0.1907624, 0.19076225, 1)
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+position = Vector2(0, 789)
+
+[node name="ColorRect" type="ColorRect" parent="StaticBody2D"]
+offset_right = 467.0
+offset_bottom = 290.0
+color = Color(0, 0, 0, 1)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(232.5, 145.5)
+shape = SubResource("RectangleShape2D_86sos")
+
+[node name="StaticBody2D2" type="StaticBody2D" parent="."]
+position = Vector2(467, 747)
+
+[node name="ColorRect" type="ColorRect" parent="StaticBody2D2"]
+offset_right = 467.0
+offset_bottom = 335.0
+color = Color(0, 0, 0, 1)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D2"]
+position = Vector2(232.5, 168)
+shape = SubResource("RectangleShape2D_ef5c4")
+
+[node name="StaticBody2D3" type="StaticBody2D" parent="."]
+position = Vector2(934, 475)
+
+[node name="ColorRect" type="ColorRect" parent="StaticBody2D3"]
+offset_right = 1007.0
+offset_bottom = 602.0
+color = Color(0, 0, 0, 1)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D3"]
+position = Vector2(499, 301)
+shape = SubResource("RectangleShape2D_u4uqp")
+
+[node name="StaticBody2D4" type="StaticBody2D" parent="."]
+position = Vector2(7.000001, 824)
+rotation = -0.16580628
+
+[node name="ColorRect" type="ColorRect" parent="StaticBody2D4"]
+offset_right = 467.0
+offset_bottom = 290.0
+color = Color(0, 0, 0, 1)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D4"]
+position = Vector2(232.5, 145.5)
+shape = SubResource("RectangleShape2D_86sos")
+
+[node name="StaticBody2D5" type="StaticBody2D" parent="."]
+position = Vector2(-290, 210)
+scale = Vector2(1.44, 0.325)
+
+[node name="ColorRect" type="ColorRect" parent="StaticBody2D5"]
+offset_right = 467.0
+offset_bottom = 290.0
+color = Color(0, 0, 0, 1)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D5"]
+position = Vector2(232.5, 145.5)
+shape = SubResource("RectangleShape2D_86sos")
+
+[node name="Player" parent="." instance=ExtResource("1_ef5c4")]
+position = Vector2(277, 188)
+
+[node name="DirectionalLight2D" type="DirectionalLight2D" parent="."]
+rotation = 0.7853982
+energy = 0.1
+shadow_enabled = true
+
+[node name="LightOccluder2D" type="LightOccluder2D" parent="."]
+occluder = SubResource("OccluderPolygon2D_ef5c4")
+
+[node name="LightOccluder2D2" type="LightOccluder2D" parent="."]
+position = Vector2(290, 577)
+occluder = SubResource("OccluderPolygon2D_u4uqp")
