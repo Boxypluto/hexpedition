@@ -1,0 +1,24 @@
+[gd_scene load_steps=5 format=3 uid="uid://0vuuc2eqrap6"]
+
+[ext_resource type="Script" uid="uid://c6tjyrlxm63h8" path="res://TitlePage/title_page.gd" id="1_o422v"]
+[ext_resource type="Texture2D" uid="uid://bupp1cyx1n8mn" path="res://TitlePage/Images/Demo.svg" id="2_ld612"]
+[ext_resource type="Texture2D" uid="uid://j6fxkpw06sx6" path="res://TitlePage/Images/Title.svg" id="3_himvo"]
+[ext_resource type="Texture2D" uid="uid://c1ko4u3wrajmo" path="res://TitlePage/Images/Continue.svg" id="3_ld612"]
+
+[node name="TitlePage" type="Node2D"]
+script = ExtResource("1_o422v")
+
+[node name="Title" type="Sprite2D" parent="."]
+position = Vector2(578, 307)
+texture = ExtResource("3_himvo")
+offset = Vector2(0, -100)
+
+[node name="Continue" type="Sprite2D" parent="Title"]
+position = Vector2(0, 192)
+scale = Vector2(0.42, 0.42)
+texture = ExtResource("3_ld612")
+
+[node name="Demo" type="Sprite2D" parent="Title"]
+position = Vector2(246, -59)
+scale = Vector2(0.63, 0.63)
+texture = ExtResource("2_ld612")
