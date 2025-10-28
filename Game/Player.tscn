@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://cpwk0qxaoinxg"]
+[gd_scene load_steps=17 format=3 uid="uid://cpwk0qxaoinxg"]
 
 [ext_resource type="Script" uid="uid://dgunar265por8" path="res://Game/player.gd" id="1_yg8f4"]
 [ext_resource type="Texture2D" uid="uid://cwipu1yfxi81u" path="res://assets/player/player.png" id="2_hiq6t"]
@@ -9,34 +9,91 @@ size = Vector2(21, 34)
 [sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_yg8f4"]
 polygon = PackedVector2Array(-10, -17, 11, -17, 11, 17, -10, 17)
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_mwavb"]
+atlas = ExtResource("2_hiq6t")
+region = Rect2(640, 0, 64, 41)
+
 [sub_resource type="AtlasTexture" id="AtlasTexture_hiq6t"]
 atlas = ExtResource("2_hiq6t")
-region = Rect2(152, 0, 38, 41)
+region = Rect2(448, 0, 64, 41)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1b1aa"]
+atlas = ExtResource("2_hiq6t")
+region = Rect2(512, 0, 64, 41)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wv757"]
+atlas = ExtResource("2_hiq6t")
+region = Rect2(576, 0, 64, 41)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ulcjw"]
+atlas = ExtResource("2_hiq6t")
+region = Rect2(640, 0, 64, 41)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jjv26"]
+atlas = ExtResource("2_hiq6t")
+region = Rect2(64, 0, 64, 41)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2lwoy"]
+atlas = ExtResource("2_hiq6t")
+region = Rect2(512, 0, 64, 41)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_v0l8u"]
 atlas = ExtResource("2_hiq6t")
-region = Rect2(38, 0, 38, 41)
+region = Rect2(64, 0, 64, 41)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_jouls"]
 atlas = ExtResource("2_hiq6t")
-region = Rect2(76, 0, 38, 41)
+region = Rect2(128, 0, 64, 41)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_cxpn3"]
 atlas = ExtResource("2_hiq6t")
-region = Rect2(114, 0, 38, 41)
+region = Rect2(192, 0, 64, 41)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_vgjmx"]
 atlas = ExtResource("2_hiq6t")
-region = Rect2(152, 0, 38, 41)
+region = Rect2(256, 0, 64, 41)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_wv757"]
 animations = [{
 "frames": [{
 "duration": 1.0,
+"texture": SubResource("AtlasTexture_mwavb")
+}],
+"loop": true,
+"name": &"fall",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
 "texture": SubResource("AtlasTexture_hiq6t")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1b1aa")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wv757")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ulcjw")
+}],
+"loop": false,
+"name": &"flap",
+"speed": 18.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jjv26")
 }],
 "loop": true,
 "name": &"idle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2lwoy")
+}],
+"loop": true,
+"name": &"jump",
 "speed": 5.0
 }, {
 "frames": [{
@@ -83,4 +140,4 @@ occluder = SubResource("OccluderPolygon2D_yg8f4")
 [node name="Animations" type="AnimatedSprite2D" parent="."]
 position = Vector2(0, -1)
 sprite_frames = SubResource("SpriteFrames_wv757")
-animation = &"idle"
+animation = &"flap"

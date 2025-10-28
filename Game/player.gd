@@ -25,16 +25,25 @@ func animate():
 	# Save horizontal input
 	var horizontal_input: float = Input.get_axis("Left", "Right")
 	# Always play animations (for now)
-	if not animations.is_playing():
+	if not animations.is_playing() and animations.animation != "flap":
 		animations.play()
 	# Flip the sprite based on movement
 	if sign(horizontal_input) == 1:
 		animations.flip_h = false
 	if sign(horizontal_input) == -1:
 		animations.flip_h = true
-	# Idle if there's NO INPUT or if the player is NOT ON FLOOR
-	# *This will change later*, when I make more animations
-	if horizontal_input == 0.0 or not is_on_floor():
-		animations.animation = "idle"
+	
+	if Input.is_action_just_pressed("Fly") and not is_on_floor():
+		animations.animation = "flap"
+	
+	if is_on_floor():
+		if horizontal_input == 0.0:
+			animations.animation = "idle"
+		else:
+			animations.animation = "walk"
 	else:
-		animations.animation = "walk"
+		if not (animations.animation == "flap" and animations.is_playing()):
+			if velocity.y < 0:
+				animations.animation = "jump"
+			else:
+				animations.animation = "fall"
