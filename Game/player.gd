@@ -1,6 +1,7 @@
 extends CharacterBody2D
 
 @onready var animations: AnimatedSprite2D = $Animations
+@onready var weapon_machine: Node2D = $WeaponStates
 
 # flytimer controls the time between each flap
 # stamina controls how many flaps until out
@@ -28,7 +29,11 @@ func _process(delta: float) -> void:
 		velocity.y -= 350;
 		stamina -= 1;
 		staminaRegen = 2;
-		
+		animations.play("flap")
+	
+	if Input.is_action_just_pressed("Use"):
+		weapon_machine.do_action()
+	
 	# Timer control, regen and time between each flap
 	if flytimer >0:
 		flytimer -=delta;
@@ -58,8 +63,11 @@ func animate():
 		
 	# Idle if there's NO INPUT or if the player is NOT ON FLOOR
 	# *This will change later*, when I make more animations
-	if horizontal_input == 0.0 or not is_on_floor():
-		animations.animation = "idle"
+	if is_on_floor():
+		if horizontal_input == 0.0:
+			animations.animation = "idle"
+		else:
+			animations.animation = "walk"
 	else:
 		if not (animations.animation == "flap" and animations.is_playing()):
 			if velocity.y < 0:
