@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="19ca8ae1-1bfb-430a-b03e-510845c74d0b" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/../Game/HUD/hud.gd" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Game/HUD/hud.gd.uid" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Game/break_effect.gd" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Game/break_effect.gd.uid" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Global/freeze.gd" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Global/freeze.gd.uid" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../assets/backgrounds/back_1.aseprite" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../assets/backgrounds/back_1.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../assets/backgrounds/back_1.png.import" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../assets/environment/circle.aseprite" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../assets/environment/circle.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../assets/environment/circle.png.import" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../assets/hud/souls.aseprite" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../assets/hud/souls.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../assets/hud/souls.png.import" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../assets/player/weapon_break.aseprite" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../assets/player/weapon_break.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../assets/player/weapon_break.png.import" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../assets/tiles/hell_tileset_big.aseprite" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Game/Enemy/Enemy.tscn" beforeDir="false" afterPath="$PROJECT_DIR$/../Game/Enemy/Enemy.tscn" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Game/Enemy/enemy.gd" beforeDir="false" afterPath="$PROJECT_DIR$/../Game/Enemy/enemy.gd" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Game/Interactive Objects/bone.tscn" beforeDir="false" afterPath="$PROJECT_DIR$/../Game/Interactive Objects/bone.tscn" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Game/Player.tscn" beforeDir="false" afterPath="$PROJECT_DIR$/../Game/Player.tscn" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Game/Weapon States/weapon_bone.gd" beforeDir="false" afterPath="$PROJECT_DIR$/../Game/Weapon States/weapon_bone.gd" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Game/damage_dealer.gd" beforeDir="false" afterPath="$PROJECT_DIR$/../Game/damage_dealer.gd" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Game/player.gd" beforeDir="false" afterPath="$PROJECT_DIR$/../Game/player.gd" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/DemoLevel.tscn" beforeDir="false" afterPath="$PROJECT_DIR$/DemoLevel.tscn" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/test_level.tscn" beforeDir="false" afterPath="$PROJECT_DIR$/test_level.tscn" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Testing/tiles_testing.tres" beforeDir="false" afterPath="$PROJECT_DIR$/../Testing/tiles_testing.tres" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../assets/tiles/hell_tileset.aseprite" beforeDir="false" afterPath="$PROJECT_DIR$/../assets/tiles/hell_tileset.aseprite" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../assets/tiles/hell_tileset.png" beforeDir="false" afterPath="$PROJECT_DIR$/../assets/tiles/hell_tileset.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../project.godot" beforeDir="false" afterPath="$PROJECT_DIR$/../project.godot" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
+  </component>
+  <component name="ProjectColorInfo"><![CDATA[{
+  "associatedIndex": 1
+}]]></component>
+  <component name="ProjectId" id="34nqISoHiSryGBZx1bOvmfaiHB0" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "ModuleVcsDetector.initialDetectionPerformed": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "RunOnceActivity.git.unshallow": "true",
+    "git-widget-placeholder": "Merging Demo-Level-revamp",
+    "vue.rearranger.settings.migration": "true"
+  }
+}]]></component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="19ca8ae1-1bfb-430a-b03e-510845c74d0b" name="Changes" comment="" />
+      <created>1761859605557</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1761859605557</updated>
+      <workItem from="1761859607098" duration="27000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="UnityProjectConfiguration" hasMinimizedUI="false" />
+  <component name="VcsManagerConfiguration">
+    <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="true" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <breakpoint enabled="true" type="DotNet_Exception_Breakpoints">
+          <properties exception="System.OperationCanceledException" breakIfHandledByOtherCode="false" displayValue="System.OperationCanceledException" />
+          <option name="timeStamp" value="1" />
+        </breakpoint>
+        <breakpoint enabled="true" type="DotNet_Exception_Breakpoints">
+          <properties exception="System.Threading.Tasks.TaskCanceledException" breakIfHandledByOtherCode="false" displayValue="System.Threading.Tasks.TaskCanceledException" />
+          <option name="timeStamp" value="2" />
+        </breakpoint>
+        <breakpoint enabled="true" type="DotNet_Exception_Breakpoints">
+          <properties exception="System.Threading.ThreadAbortException" breakIfHandledByOtherCode="false" displayValue="System.Threading.ThreadAbortException" />
+          <option name="timeStamp" value="3" />
+        </breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
+  </component>
+</project>
