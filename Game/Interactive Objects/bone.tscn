@@ -1,6 +1,7 @@
-[gd_scene load_steps=4 format=3 uid="uid://bq7o3ic2mqrk7"]
+[gd_scene load_steps=6 format=3 uid="uid://bq7o3ic2mqrk7"]
 
 [ext_resource type="Script" uid="uid://credaa611kp8c" path="res://Game/Interactive Objects/pickupable_weapon.gd" id="1_q6jtw"]
+[ext_resource type="Texture2D" uid="uid://kmfcsei5enms" path="res://assets/player/weapons/bone.png" id="2_fs1tj"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_0qohl"]
 radius = 0.99999994
@@ -8,6 +9,10 @@ height = 26.0
 
 [sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_0qohl"]
 polygon = PackedVector2Array(-13, -1, 13, -1, 13, 1, -13, 1)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_amg1x"]
+atlas = ExtResource("2_fs1tj")
+region = Rect2(5.140503, 0, 47.9339, 64)
 
 [node name="Bone" type="RigidBody2D"]
 collision_layer = 4
@@ -28,3 +33,7 @@ shape = SubResource("CapsuleShape2D_0qohl")
 
 [node name="LightOccluder2D" type="LightOccluder2D" parent="."]
 occluder = SubResource("OccluderPolygon2D_0qohl")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+rotation = 0.7853982
+texture = SubResource("AtlasTexture_amg1x")
