@@ -1,4 +1,4 @@
-[gd_scene load_steps=25 format=3 uid="uid://cpwk0qxaoinxg"]
+[gd_scene load_steps=26 format=3 uid="uid://cpwk0qxaoinxg"]
 
 [ext_resource type="Script" uid="uid://dgunar265por8" path="res://Game/player.gd" id="1_yg8f4"]
 [ext_resource type="Texture2D" uid="uid://cwipu1yfxi81u" path="res://assets/player/player.png" id="2_hiq6t"]
@@ -158,6 +158,9 @@ animations = [{
 "speed": 12.0
 }]
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_cxpn3"]
+size = Vector2(23, 20)
+
 [node name="Player" type="CharacterBody2D"]
 collision_layer = 10
 collision_mask = 9
@@ -194,3 +197,12 @@ position = Vector2(3, 6)
 sprite_frames = SubResource("SpriteFrames_mwavb")
 animation = &"swing"
 offset = Vector2(16, -15)
+
+[node name="DamageDealer" type="Area2D" parent="."]
+position = Vector2(20, 0)
+collision_layer = 0
+collision_mask = 8
+
+[node name="Collision" type="CollisionShape2D" parent="DamageDealer"]
+shape = SubResource("RectangleShape2D_cxpn3")
+disabled = true
