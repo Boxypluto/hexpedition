@@ -3,6 +3,9 @@ class_name WeaponBone
 
 @onready var animations: AnimatedSprite2D = $BoneAnimations
 
+func id() -> StringName:
+	return &"Bone"
+
 func enter():
 	visible = true
 

@@ -1,7 +1,7 @@
 extends CharacterBody2D
 
 @onready var animations: AnimatedSprite2D = $Animations
-@onready var weapon_machine: Node2D = $WeaponStates
+@onready var weapon_machine: WeaponStateMachine = $WeaponStates
 
 # flytimer controls the time between each flap
 # stamina controls how many flaps until out
@@ -13,6 +13,9 @@ var staminaRegen = 0;
 var inventory = [];
 var health = 100;
 var hitTimer = 0;
+
+const PICKUP_DISTANCE: float = 32.0
+
 func _process(delta: float) -> void:
 	if health < 0 or global_position.y > 700:
 		get_parent().get_node("deathCam").zoom = $Camera2D.zoom;
@@ -61,6 +64,7 @@ func _process(delta: float) -> void:
 	else:
 		modulate= Color.html("#ffffff");
 		health += 5*delta;
+	pickupable_process()
 	# Animate the player (below)
 	animate()
 	move_and_slide();
@@ -98,3 +102,21 @@ func damage(force: Vector2, h: int):
 	if hitTimer < 0.24:
 		health -= h
 	hitTimer = 0.25;
+
+func pickupable_process() -> void:
+	var closest: PickupableWeapon = null
+	var closest_distance: float = INF
+	for pickupable in Registry.pickupables:
+		pickupable.highlighted = false
+		var distance: float = pickupable.global_position.distance_to(global_position)
+		if distance < closest_distance:
+			closest_distance = distance
+			closest = pickupable
+	if closest:
+		if closest_distance > PICKUP_DISTANCE:
+			closest = null
+		else:
+			closest.highlighted = true
+	
+	if Input.is_action_just_pressed("PickUp") and closest != null:
+		weapon_machine.swap_to_id(closest.do_pickup())

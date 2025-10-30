@@ -1,6 +1,6 @@
-[gd_scene load_steps=5 format=3 uid="uid://bq7o3ic2mqrk7"]
+[gd_scene load_steps=4 format=3 uid="uid://bq7o3ic2mqrk7"]
 
-[ext_resource type="Script" uid="uid://bacbt36klb2wx" path="res://Game/Interactive Objects/bone.gd" id="1_q6jtw"]
+[ext_resource type="Script" uid="uid://credaa611kp8c" path="res://Game/Interactive Objects/pickupable_weapon.gd" id="1_q6jtw"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_0qohl"]
 radius = 0.99999994
@@ -9,13 +9,11 @@ height = 26.0
 [sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_0qohl"]
 polygon = PackedVector2Array(-13, -1, 13, -1, 13, 1, -13, 1)
 
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_q6jtw"]
-radius = 3.0
-
 [node name="Bone" type="RigidBody2D"]
 collision_layer = 4
 gravity_scale = 0.2
 script = ExtResource("1_q6jtw")
+id = &"Bone"
 
 [node name="ColorRect" type="ColorRect" parent="."]
 offset_left = -13.0
@@ -30,9 +28,3 @@ shape = SubResource("CapsuleShape2D_0qohl")
 
 [node name="LightOccluder2D" type="LightOccluder2D" parent="."]
 occluder = SubResource("OccluderPolygon2D_0qohl")
-
-[node name="PickupArea" type="Area2D" parent="."]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="PickupArea"]
-rotation = -1.5707964
-shape = SubResource("CapsuleShape2D_q6jtw")
