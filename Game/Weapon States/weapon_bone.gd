@@ -14,7 +14,8 @@ func exit():
 
 func do_action():
 	animations.play("swing")
-
+	get_parent().get_parent().get_node("DamageDealer/Collision").disabled = false;
 func physics_update(_delta: float) -> void:
 	if not animations.is_playing():
 		animations.play("idle")
+		get_parent().get_parent().get_node("DamageDealer/Collision").disabled = true;

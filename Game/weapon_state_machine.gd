@@ -21,7 +21,8 @@ func _process(_delta: float) -> void:
 	scale.x = filp
 
 func do_action():
-	if current_state == null: return
+	if current_state == null: 
+		return
 	current_state.do_action()
 
 func _physics_process(delta: float) -> void:

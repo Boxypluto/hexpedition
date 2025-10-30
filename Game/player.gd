@@ -46,6 +46,7 @@ func _process(delta: float) -> void:
 	
 	if Input.is_action_just_pressed("Use"):
 		weapon_machine.do_action()
+		$DamageDealer/CollisionShape2D.disabled = false;
 	
 	# Timer control, regen and time between each flap
 	if flytimer >0:
@@ -65,6 +66,9 @@ func _process(delta: float) -> void:
 		modulate= Color.html("#ffffff");
 		health += 5*delta;
 	pickupable_process()
+	
+	for bodies in $DamageDealer.get_overlapping_bodies():
+		bodies.damage((bodies.global_position - global_position).normalized()*50, 25)
 	# Animate the player (below)
 	animate()
 	move_and_slide();
@@ -80,8 +84,10 @@ func animate():
 	# Flip the sprite based on movement
 	if sign(horizontal_input) == 1:
 		animations.flip_h = false
+		$DamageDealer.position.x = 20;
 	if sign(horizontal_input) == -1:
 		animations.flip_h = true
+		$DamageDealer.position.x = -20;
 		
 	# Idle if there's NO INPUT or if the player is NOT ON FLOOR
 	# *This will change later*, when I make more animations
