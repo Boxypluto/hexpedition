@@ -1,9 +1,17 @@
-@abstract
 extends RigidBody2D
 class_name PickupableWeapon
 
-@export var pickup_area: Area2D
 @export var id: StringName = &'None'
 
+var highlighted: bool = false
+
+func _physics_process(delta: float) -> void:
+	modulate.v = 1.5 if highlighted else 0.4
+
 func _ready() -> void:
-	assert(pickup_area != null, "Pickupable Weapon " + id + " has no assigned pickup_area!")
+	Registry.register_pickupable(self)
+
+func do_pickup() -> StringName:
+	Registry.remove_pickupable(self)
+	queue_free()
+	return id

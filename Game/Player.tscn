@@ -184,9 +184,8 @@ position = Vector2(0, -1)
 sprite_frames = SubResource("SpriteFrames_wv757")
 animation = &"flap"
 
-[node name="WeaponStates" type="Node2D" parent="." node_paths=PackedStringArray("current_state")]
+[node name="WeaponStates" type="Node2D" parent="."]
 script = ExtResource("3_cxpn3")
-current_state = NodePath("Bone")
 
 [node name="Bone" type="Node2D" parent="WeaponStates"]
 visible = false
