@@ -6,7 +6,8 @@ class_name WeaponStateMachine
 		if current_state != null:
 			current_state.exit()
 		current_state = new
-		new.enter()
+		if new != null:
+			new.enter()
 @onready var animations: AnimatedSprite2D = $"../Animations"
 
 func swap_to_id(id: StringName):

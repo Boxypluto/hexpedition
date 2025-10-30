@@ -1,8 +1,13 @@
-[gd_scene load_steps=4 format=4 uid="uid://wdu24dmitr1i"]
+[gd_scene load_steps=7 format=4 uid="uid://wdu24dmitr1i"]
 
 [ext_resource type="TileSet" uid="uid://cprgho0y554r1" path="res://Testing/tiles_testing.tres" id="1_00vsl"]
 [ext_resource type="PackedScene" uid="uid://cpwk0qxaoinxg" path="res://Game/Player.tscn" id="2_4k50d"]
 [ext_resource type="PackedScene" uid="uid://bq7o3ic2mqrk7" path="res://Game/Interactive Objects/bone.tscn" id="3_4k50d"]
+[ext_resource type="Texture2D" uid="uid://ba3bqvn62cenv" path="res://icon.svg" id="4_i4ak4"]
+[ext_resource type="Script" uid="uid://2ci5p52batdf" path="res://Testing/test_dummy.gd" id="5_3158n"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_3158n"]
+size = Vector2(123.87097, 127.99999)
 
 [node name="TestLevel" type="Node2D"]
 
@@ -19,3 +24,18 @@ position = Vector2(456, 156)
 
 [node name="Bone2" parent="." instance=ExtResource("3_4k50d")]
 position = Vector2(348, 174)
+
+[node name="TestDummy" type="Sprite2D" parent="."]
+position = Vector2(241.99998, 183)
+scale = Vector2(0.484375, 0.484375)
+texture = ExtResource("4_i4ak4")
+script = ExtResource("5_3158n")
+
+[node name="CharacterBody2D" type="CharacterBody2D" parent="TestDummy"]
+collision_layer = 8
+script = ExtResource("5_3158n")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="TestDummy/CharacterBody2D"]
+position = Vector2(-4.129058, 2.064493)
+scale = Vector2(1.0000002, 1.0000002)
+shape = SubResource("RectangleShape2D_3158n")
