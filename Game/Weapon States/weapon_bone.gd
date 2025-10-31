@@ -7,7 +7,7 @@ class_name WeaponBone
 @onready var break_particles: GPUParticles2D = $"../BreakBone"
 @onready var break_effect: BreakEffect = $"../BreakEffect"
 
-const START_DURABILITY = 4
+const START_DURABILITY = 3
 var durability: int
 var hit_this_swing: bool = false
 
