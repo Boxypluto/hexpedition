@@ -192,7 +192,6 @@ texture = SubResource("AtlasTexture_1w7pf")
 position = Vector2(964, 145)
 
 [node name="HarpyFeather" parent="." instance=ExtResource("8_qs7c1")]
-<<<<<<< Updated upstream
 position = Vector2(281, 197)
 
 [node name="DevNote" type="Label" parent="."]
@@ -216,16 +215,13 @@ autowrap_mode = 3
 
 [node name="DevNote2" type="Label" parent="."]
 texture_filter = 1
-offset_left = 234.0
-offset_top = -58.0
-offset_right = 1021.0
-offset_bottom = 371.0
+offset_left = 259.0
+offset_top = -28.0
+offset_right = 1046.0
+offset_bottom = 401.0
 scale = Vector2(0.25, 0.25)
 text = "DEV NOTE: HARRISON
 CURRENTLY WORKING ON:
 - 3rd weapon"
 label_settings = SubResource("LabelSettings_6qqx0")
 autowrap_mode = 3
-=======
-position = Vector2(1178, 420)
->>>>>>> Stashed changes
