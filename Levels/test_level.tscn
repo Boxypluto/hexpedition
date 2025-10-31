@@ -39,3 +39,9 @@ script = ExtResource("5_3158n")
 position = Vector2(-4.129058, 2.064493)
 scale = Vector2(1.0000002, 1.0000002)
 shape = SubResource("RectangleShape2D_3158n")
+
+[node name="Bone3" parent="." instance=ExtResource("3_4k50d")]
+position = Vector2(401, 182)
+
+[node name="Bone2" parent="Bone3" instance=ExtResource("3_4k50d")]
+position = Vector2(-98, 16)

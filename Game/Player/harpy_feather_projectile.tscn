@@ -25,7 +25,7 @@ collision_layer = 0
 collision_mask = 8
 script = ExtResource("2_cjnv4")
 knockback = 25.0
-damage = 50.0
+damage = 25.0
 metadata/_custom_type_script = "uid://cdwmtd1e7j5gn"
 
 [node name="DamageShape" type="CollisionShape2D" parent="DamageDealer"]

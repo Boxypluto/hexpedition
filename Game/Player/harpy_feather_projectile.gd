@@ -30,7 +30,7 @@ func do_break():
 
 func damage_cycle() -> void:
 	damage_shape.disabled = true
-	await get_tree().create_timer(damage_timer.wait_time / 2.0).timeout
+	await get_tree().create_timer(damage_timer.wait_time / 4.0).timeout
 	damage_shape.disabled = false
 
 func did_hit_thing() -> void:
