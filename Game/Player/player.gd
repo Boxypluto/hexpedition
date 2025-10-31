@@ -110,6 +110,7 @@ func animate():
 				animations.animation = "jump"
 			else:
 				animations.animation = "fall"
+			
 func damage(force: Vector2, h: int):
 	velocity.x += force.x
 	velocity.y -= 8;
