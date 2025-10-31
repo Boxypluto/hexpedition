@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=4 uid="uid://duv5og2tyismn"]
+[gd_scene load_steps=17 format=4 uid="uid://duv5og2tyismn"]
 
 [ext_resource type="PackedScene" uid="uid://cpwk0qxaoinxg" path="res://Game/Player/Player.tscn" id="1_ef5c4"]
 [ext_resource type="TileSet" uid="uid://cprgho0y554r1" path="res://Testing/tiles_testing.tres" id="1_u4uqp"]
@@ -30,6 +30,17 @@ region = Rect2(0, 2160, 0, 720)
 [sub_resource type="AtlasTexture" id="AtlasTexture_1w7pf"]
 atlas = ExtResource("7_wpb74")
 region = Rect2(0, 2880, 0, 720)
+
+[sub_resource type="LabelSettings" id="LabelSettings_qs7c1"]
+font_size = 32
+outline_size = 14
+outline_color = Color(0, 0, 0, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_6qqx0"]
+font_size = 32
+font_color = Color(0.9752112, 0.48786056, 0, 1)
+outline_size = 14
+outline_color = Color(0, 0, 0, 1)
 
 [node name="DemoLevel" type="Node2D"]
 script = ExtResource("1_x24b0")
@@ -182,3 +193,34 @@ position = Vector2(350, 186)
 
 [node name="HarpyFeather" parent="." instance=ExtResource("8_qs7c1")]
 position = Vector2(281, 197)
+
+[node name="DevNote" type="Label" parent="."]
+texture_filter = 1
+offset_left = 24.0
+offset_top = -60.0
+offset_right = 811.0
+offset_bottom = 369.0
+scale = Vector2(0.25, 0.25)
+text = "DEV NOTE: HARRISON
+- Added Harpy Feather, one-use ranged weapon
+- Added corners to Red and Bone Tiles
+- Increased Knockback from Weapons
+- Added Specialized \"DamageDealer\" Script, which can set damage and knockback
+- Added outline for pickupables instead of highlight
+- Added Freeze-frame when attacking
+- Added Backgrounds"
+label_settings = SubResource("LabelSettings_qs7c1")
+autowrap_mode = 3
+
+[node name="DevNote2" type="Label" parent="."]
+texture_filter = 1
+offset_left = 234.0
+offset_top = -58.0
+offset_right = 1021.0
+offset_bottom = 371.0
+scale = Vector2(0.25, 0.25)
+text = "DEV NOTE: HARRISON
+CURRENTLY WORKING ON:
+- 3rd weapon"
+label_settings = SubResource("LabelSettings_6qqx0")
+autowrap_mode = 3
