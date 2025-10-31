@@ -23,9 +23,30 @@ func _process(_delta: float) -> void:
 
 func do_action():
 	if current_state == null: 
+		weaponless_slash()
 		return
 	current_state.do_action()
 
 func _physics_process(delta: float) -> void:
-	if current_state == null: return
+	weaponless_process()
+	if current_state == null:
+		return
 	current_state.physics_update(delta)
+
+# WEAPON LESS STATE --- DO NOT ADD OTHER STATES TO THIS FILE! INSTEAD ADD THEM AS CHILD NOTED WHICH INHERIT "WeaponState"!
+# THEN SETUP THEIR ID TO MATCH THE ID OF THE PICKUPABLE THEY CONNECT TO!
+
+@onready var weaponless_animation: AnimatedSprite2D = $Weaponless/WeaponlessAnimation
+@onready var weaponless_damage_dealer: DamageDealer = $Weaponless/DamageDealer
+@onready var weaponless_collision: CollisionShape2D = $Weaponless/DamageDealer/Collision
+
+func weaponless_slash():
+	weaponless_animation.play("Swing")
+	weaponless_collision.disabled = false
+
+func weaponless_process():
+	if weaponless_animation.animation == "Swing" and not weaponless_animation.is_playing():
+		weaponless_animation.animation = "None"
+	
+	if weaponless_animation.animation == "None" and not weaponless_collision.disabled:
+		weaponless_collision.disabled = true

@@ -16,5 +16,6 @@ func _ready() -> void:
 
 func do_pickup() -> StringName:
 	Registry.remove_pickupable(self)
+	print("DID PICKUP")
 	queue_free()
 	return id

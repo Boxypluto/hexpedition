@@ -34,14 +34,15 @@ collide_with_areas = true
 
 [node name="Left" type="RayCast2D" parent="SteeringRays"]
 position = Vector2(0, 9)
-target_position = Vector2(-9, 0)
+target_position = Vector2(-4, 0)
 collision_mask = 8
 collide_with_areas = true
 
 [node name="Right" type="RayCast2D" parent="SteeringRays"]
 position = Vector2(7, 9)
-target_position = Vector2(9, 0)
+target_position = Vector2(4, 0)
 collision_mask = 8
+
 [node name="BigFallDetector" type="RayCast2D" parent="."]
 position = Vector2(15, 0)
 target_position = Vector2(0, 500)
