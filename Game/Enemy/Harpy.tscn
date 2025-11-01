@@ -1,12 +1,61 @@
-[gd_scene load_steps=4 format=3 uid="uid://bsuapw1n770eq"]
+[gd_scene load_steps=11 format=3 uid="uid://bsuapw1n770eq"]
 
 [ext_resource type="Script" uid="uid://binsd66fi6phj" path="res://Game/Enemy/harpy.gd" id="1_e1fh4"]
+[ext_resource type="Texture2D" uid="uid://dcot56rjdwvya" path="res://assets/enemies/harpy.png" id="2_ualdc"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_y5q7k"]
 size = Vector2(13, 18)
 
 [sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_83l4y"]
 polygon = PackedVector2Array(0, 0, 13, 0, 13, 18, 0, 18)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6n23v"]
+atlas = ExtResource("2_ualdc")
+region = Rect2(0, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2cwn1"]
+atlas = ExtResource("2_ualdc")
+region = Rect2(128, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_sel2n"]
+atlas = ExtResource("2_ualdc")
+region = Rect2(64, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_pylgr"]
+atlas = ExtResource("2_ualdc")
+region = Rect2(0, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ny6mv"]
+atlas = ExtResource("2_ualdc")
+region = Rect2(192, 0, 64, 64)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_vj2hs"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6n23v")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2cwn1")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_sel2n")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_pylgr")
+}],
+"loop": true,
+"name": &"Flap",
+"speed": 12.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ny6mv")
+}],
+"loop": true,
+"name": &"Hang",
+"speed": 5.0
+}]
 
 [node name="Harpy" type="CharacterBody2D"]
 collision_layer = 8
@@ -21,6 +70,7 @@ shape = SubResource("RectangleShape2D_y5q7k")
 occluder = SubResource("OccluderPolygon2D_83l4y")
 
 [node name="ColorRect" type="ColorRect" parent="."]
+visible = false
 offset_right = 12.88
 offset_bottom = 18.0
 color = Color(0.90591455, 0.00013053059, 0.7449905, 1)
@@ -30,6 +80,14 @@ metadata/_edit_use_anchors_ = true
 target_position = Vector2(0, 0)
 collision_mask = 3
 collide_with_areas = true
+
+[node name="Animations" type="AnimatedSprite2D" parent="."]
+position = Vector2(7, 14)
+sprite_frames = SubResource("SpriteFrames_vj2hs")
+animation = &"Flap"
+autoplay = "Hang"
+frame = 3
+frame_progress = 0.67802906
 
 [node name="SteeringRays" type="Node2D" parent="."]
 

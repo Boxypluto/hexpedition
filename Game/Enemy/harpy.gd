@@ -11,6 +11,7 @@ var knockback_multiplier: float = 8.0
 
 @onready var steer_left: RayCast2D = $SteeringRays/Left
 @onready var steer_right: RayCast2D = $SteeringRays/Right
+@onready var animations: AnimatedSprite2D = $Animations
 
 const feather = preload("res://Game/Interactive Objects/harpy_feather.tscn")
 func _process(delta: float) -> void:
@@ -38,6 +39,7 @@ func _process(delta: float) -> void:
 	else:
 		active = false;
 	if active:
+		animations.animation = "Flap"
 		if (velocity.y > 50 and GlobalVariables.currentLevel.get_node("Player").global_position.distance_to(global_position)>100):
 			if GlobalVariables.currentLevel.get_node("Player").global_position.y-50 < global_position.y:
 				velocity.y -= 300;
@@ -55,9 +57,16 @@ func _process(delta: float) -> void:
 			if (velocity.y > 50):
 				velocity.y -= 300;
 		else:
+			animations.animation = "Hang"
 			velocity = Vector2(0,0);
 		pass
-		
+	
+	# Flipping
+	if velocity.x > 0:
+		animations.flip_h = true
+	if velocity.x < 0:
+		animations.flip_h = false
+	
 	# Enemy Seperation Steering
 	if (velocity.x > 0 and limit_right) or (velocity.x < 0 and limit_left):
 		velocity.x *= 0.8
