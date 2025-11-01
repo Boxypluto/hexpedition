@@ -1,13 +1,16 @@
-[gd_scene load_steps=17 format=4 uid="uid://duv5og2tyismn"]
+[gd_scene load_steps=20 format=4 uid="uid://duv5og2tyismn"]
 
 [ext_resource type="PackedScene" uid="uid://cpwk0qxaoinxg" path="res://Game/Player/Player.tscn" id="1_ef5c4"]
 [ext_resource type="TileSet" uid="uid://cprgho0y554r1" path="res://Testing/tiles_testing.tres" id="1_u4uqp"]
 [ext_resource type="Script" uid="uid://bp17ldrnhcv6c" path="res://Levels/demo_level.gd" id="1_x24b0"]
 [ext_resource type="Script" uid="uid://gjkja6apmqy7" path="res://Game/HUD/hud.gd" id="2_d7cr2"]
+[ext_resource type="FontFile" uid="uid://2yhchrcjwdyo" path="res://Game/HUD/VT323-Regular.ttf" id="3_5kr3k"]
 [ext_resource type="PackedScene" uid="uid://bq7o3ic2mqrk7" path="res://Game/Interactive Objects/bone.tscn" id="3_8bwi6"]
-[ext_resource type="PackedScene" uid="uid://gld2ufh5qvny" path="res://Game/Enemy/Enemy.tscn" id="5_4cx8u"]
+[ext_resource type="Texture2D" uid="uid://cetlmphmfgwrt" path="res://Game/HUD/souls.png" id="3_x7rns"]
+[ext_resource type="PackedScene" uid="uid://gld2ufh5qvny" path="res://Game/Enemy/Imp.tscn" id="5_4cx8u"]
 [ext_resource type="Texture2D" uid="uid://d2wjlwi08va7p" path="res://assets/backgrounds/back_1.png" id="7_wpb74"]
 [ext_resource type="PackedScene" uid="uid://c71mflgirhu1p" path="res://Game/Interactive Objects/harpy_feather.tscn" id="8_qs7c1"]
+[ext_resource type="PackedScene" uid="uid://bsuapw1n770eq" path="res://Game/Enemy/Harpy.tscn" id="9_6qqx0"]
 
 [sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_ef5c4"]
 
@@ -95,7 +98,25 @@ offset_left = 2.0
 offset_top = 2.0
 offset_right = 213.0
 offset_bottom = 21.0
-color = Color(1, 0, 0, 1)
+color = Color(1, 0.029999971, 0.029999971, 1)
+
+[node name="Souls" type="Sprite2D" parent="HUD"]
+position = Vector2(1234, 41)
+texture = ExtResource("3_x7rns")
+
+[node name="Label" type="Label" parent="HUD/Souls"]
+offset_left = -128.0
+offset_top = -15.0
+offset_right = 96.0
+offset_bottom = 65.0
+scale = Vector2(0.465, 0.465)
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_outline_color = Color(0.16799998, 0.25200003, 0.42, 1)
+theme_override_constants/outline_size = 10
+theme_override_fonts/font = ExtResource("3_5kr3k")
+theme_override_font_sizes/font_size = 80
+text = "0/15"
+horizontal_alignment = 2
 
 [node name="deathCam" type="Camera2D" parent="."]
 enabled = false
@@ -129,21 +150,6 @@ shadow_enabled = true
 
 [node name="Bone" parent="." instance=ExtResource("3_8bwi6")]
 position = Vector2(675, -42)
-
-[node name="Enemy" parent="." instance=ExtResource("5_4cx8u")]
-position = Vector2(666, 122)
-
-[node name="Enemy2" parent="." instance=ExtResource("5_4cx8u")]
-position = Vector2(788, 129)
-
-[node name="Enemy3" parent="." instance=ExtResource("5_4cx8u")]
-position = Vector2(1208, 90)
-
-[node name="Enemy4" parent="." instance=ExtResource("5_4cx8u")]
-position = Vector2(595, -39)
-
-[node name="Enemy5" parent="." instance=ExtResource("5_4cx8u")]
-position = Vector2(861, 130)
 
 [node name="Backgrounds" type="Node2D" parent="."]
 z_index = -10
@@ -225,3 +231,95 @@ CURRENTLY WORKING ON:
 - 3rd weapon"
 label_settings = SubResource("LabelSettings_6qqx0")
 autowrap_mode = 3
+
+[node name="TotalEnemy" type="Node" parent="."]
+
+[node name="Enemy1" parent="TotalEnemy" instance=ExtResource("5_4cx8u")]
+position = Vector2(666, 122)
+
+[node name="Enemy8" parent="TotalEnemy" instance=ExtResource("5_4cx8u")]
+position = Vector2(812, 131)
+
+[node name="Enemy9" parent="TotalEnemy" instance=ExtResource("5_4cx8u")]
+position = Vector2(826, 130)
+
+[node name="Enemy10" parent="TotalEnemy" instance=ExtResource("5_4cx8u")]
+position = Vector2(842, 130)
+
+[node name="Enemy11" parent="TotalEnemy" instance=ExtResource("5_4cx8u")]
+position = Vector2(876, 129)
+
+[node name="Enemy12" parent="TotalEnemy" instance=ExtResource("5_4cx8u")]
+position = Vector2(864, 112)
+
+[node name="Enemy13" parent="TotalEnemy" instance=ExtResource("5_4cx8u")]
+position = Vector2(847, 111)
+
+[node name="Enemy14" parent="TotalEnemy" instance=ExtResource("5_4cx8u")]
+position = Vector2(828, 111)
+
+[node name="Enemy15" parent="TotalEnemy" instance=ExtResource("5_4cx8u")]
+position = Vector2(847, 94)
+
+[node name="Enemy16" parent="TotalEnemy" instance=ExtResource("5_4cx8u")]
+position = Vector2(1166, 89)
+
+[node name="Enemy17" parent="TotalEnemy" instance=ExtResource("5_4cx8u")]
+position = Vector2(1186, 89)
+
+[node name="Enemy18" parent="TotalEnemy" instance=ExtResource("5_4cx8u")]
+position = Vector2(1152, 88)
+
+[node name="Enemy19" parent="TotalEnemy" instance=ExtResource("5_4cx8u")]
+position = Vector2(759, -75)
+
+[node name="Enemy20" parent="TotalEnemy" instance=ExtResource("5_4cx8u")]
+position = Vector2(1137, 90)
+
+[node name="Enemy6" parent="TotalEnemy" instance=ExtResource("5_4cx8u")]
+position = Vector2(758, -36)
+
+[node name="Enemy7" parent="TotalEnemy" instance=ExtResource("5_4cx8u")]
+position = Vector2(758, -55)
+
+[node name="Enemy2" parent="TotalEnemy" instance=ExtResource("5_4cx8u")]
+position = Vector2(788, 129)
+
+[node name="Enemy3" parent="TotalEnemy" instance=ExtResource("5_4cx8u")]
+position = Vector2(758, -96)
+
+[node name="Enemy4" parent="TotalEnemy" instance=ExtResource("5_4cx8u")]
+position = Vector2(595, -39)
+
+[node name="Enemy5" parent="TotalEnemy" instance=ExtResource("5_4cx8u")]
+position = Vector2(861, 130)
+
+[node name="Harpy1" parent="TotalEnemy" instance=ExtResource("9_6qqx0")]
+position = Vector2(448, -195)
+
+[node name="Harpy2" parent="TotalEnemy" instance=ExtResource("9_6qqx0")]
+position = Vector2(868, -203)
+
+[node name="Harpy3" parent="TotalEnemy" instance=ExtResource("9_6qqx0")]
+position = Vector2(759, 5)
+
+[node name="Harpy4" parent="TotalEnemy" instance=ExtResource("9_6qqx0")]
+position = Vector2(990, 158)
+
+[node name="Harpy5" parent="TotalEnemy" instance=ExtResource("9_6qqx0")]
+position = Vector2(651, -186)
+
+[node name="Harpy6" parent="TotalEnemy" instance=ExtResource("9_6qqx0")]
+position = Vector2(967, -170)
+
+[node name="Harpy8" parent="TotalEnemy" instance=ExtResource("9_6qqx0")]
+position = Vector2(581, 21)
+
+[node name="Harpy9" parent="TotalEnemy" instance=ExtResource("9_6qqx0")]
+position = Vector2(1094, 117)
+
+[node name="Harpy10" parent="TotalEnemy" instance=ExtResource("9_6qqx0")]
+position = Vector2(1113, 118)
+
+[node name="Harpy7" parent="TotalEnemy" instance=ExtResource("9_6qqx0")]
+position = Vector2(1177, 352)

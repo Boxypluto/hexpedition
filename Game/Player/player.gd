@@ -8,7 +8,7 @@ extends CharacterBody2D
 # staminaRegen is a control timer to regen stamina
 # invenotry is a string list, can create weapons from there
 var flytimer = 0;
-var stamina = 8;
+var stamina = 12;
 var staminaRegen = 0;
 var inventory = [];
 var health = 100;
@@ -21,7 +21,6 @@ const PICKUP_DISTANCE: float = 32.0
 func _process(delta: float) -> void:
 	
 	pickupable_process()
-	
 	if health < 0 or global_position.y > 700:
 		get_parent().get_node("deathCam").zoom = $Camera2D.zoom;
 		get_parent().get_node("deathCam").global_position = $Camera2D.global_position;
@@ -31,9 +30,9 @@ func _process(delta: float) -> void:
 		health = 100;
 	# constant velocity: velocity.x is smoothed towards zero, velocity.y is gravity
 	if is_on_floor():
-		velocity.x += (0.0-velocity.x)/(15.0);
+		velocity.x = lerp(velocity.x, 0.0, 1.0 / 15.0)
 	else:
-		velocity.x += (0.0-velocity.x)/(50.0);
+		velocity.x = lerp(velocity.x, 0.0, 1.0 / 50.0)
 	velocity.y += 500*delta;
 	
 	# Max cap on velocity
@@ -60,10 +59,10 @@ func _process(delta: float) -> void:
 	if flytimer >0:
 		flytimer -=delta;
 	if staminaRegen < 0:
-		staminaRegen = 1;
+		staminaRegen = 0.75;
 		stamina += 1
-		if stamina > 8:
-			stamina = 8;
+		if stamina > 12:
+			stamina = 12;
 	else:
 		staminaRegen -=delta;
 	

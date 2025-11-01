@@ -8,6 +8,8 @@ var has_hit: bool = false
 var last_damaged: Node = null
 
 func _ready():
+	if get_parent().name == "Weaponless":
+		damage = 5;
 	body_entered.connect(do_hit)
 
 func do_hit(other: Node2D):

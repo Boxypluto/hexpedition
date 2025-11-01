@@ -1,0 +1,44 @@
+[gd_scene load_steps=4 format=3 uid="uid://bsuapw1n770eq"]
+
+[ext_resource type="Script" uid="uid://binsd66fi6phj" path="res://Game/Enemy/harpy.gd" id="1_e1fh4"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_y5q7k"]
+size = Vector2(13, 18)
+
+[sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_83l4y"]
+polygon = PackedVector2Array(0, 0, 13, 0, 13, 18, 0, 18)
+
+[node name="Harpy" type="CharacterBody2D"]
+collision_layer = 8
+collision_mask = 3
+script = ExtResource("1_e1fh4")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(6.5, 9)
+shape = SubResource("RectangleShape2D_y5q7k")
+
+[node name="LightOccluder2D" type="LightOccluder2D" parent="."]
+occluder = SubResource("OccluderPolygon2D_83l4y")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+offset_right = 12.88
+offset_bottom = 18.0
+color = Color(0.90591455, 0.00013053059, 0.7449905, 1)
+metadata/_edit_use_anchors_ = true
+
+[node name="RayCast2D" type="RayCast2D" parent="."]
+target_position = Vector2(0, 0)
+collision_mask = 3
+collide_with_areas = true
+
+[node name="SteeringRays" type="Node2D" parent="."]
+
+[node name="Left" type="RayCast2D" parent="SteeringRays"]
+position = Vector2(0, 9)
+target_position = Vector2(-4, 0)
+collision_mask = 0
+
+[node name="Right" type="RayCast2D" parent="SteeringRays"]
+position = Vector2(13, 9)
+target_position = Vector2(4, 0)
+collision_mask = 0
