@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=4 uid="uid://duv5og2tyismn"]
+[gd_scene load_steps=21 format=4 uid="uid://duv5og2tyismn"]
 
 [ext_resource type="PackedScene" uid="uid://cpwk0qxaoinxg" path="res://Game/Player/Player.tscn" id="1_ef5c4"]
 [ext_resource type="TileSet" uid="uid://cprgho0y554r1" path="res://Testing/tiles_testing.tres" id="1_u4uqp"]
@@ -12,6 +12,7 @@
 [ext_resource type="Texture2D" uid="uid://d2wjlwi08va7p" path="res://assets/backgrounds/back_1.png" id="7_wpb74"]
 [ext_resource type="PackedScene" uid="uid://c71mflgirhu1p" path="res://Game/Interactive Objects/harpy_feather.tscn" id="8_qs7c1"]
 [ext_resource type="PackedScene" uid="uid://bsuapw1n770eq" path="res://Game/Enemy/Harpy.tscn" id="9_6qqx0"]
+[ext_resource type="PackedScene" uid="uid://ls18cvjliwji" path="res://Game/Interactive Objects/devil_tail.tscn" id="13_r0uqr"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_qs7c1"]
 font_size = 32
@@ -62,7 +63,9 @@ text = "DEV NOTE: HARRISON
 - Added outline for pickupables instead of highlight
 - Added Freeze-frame when attacking
 - Added Backgrounds
-- Added Weaponless Attack"
+- Added Weaponless Attack
+- Harpy Sprites
+- Added Tail Whip"
 label_settings = SubResource("LabelSettings_qs7c1")
 autowrap_mode = 3
 
@@ -75,8 +78,6 @@ offset_bottom = 401.0
 scale = Vector2(0.25, 0.25)
 text = "DEV NOTE: HARRISON
 CURRENTLY WORKING ON:
-- 3rd weapon
-- Harpy Sprites
 - \"Enemy\" Sprites"
 label_settings = SubResource("LabelSettings_6qqx0")
 autowrap_mode = 3
@@ -229,40 +230,6 @@ position = Vector2(964, 145)
 [node name="HarpyFeather" parent="." instance=ExtResource("8_qs7c1")]
 position = Vector2(281, 197)
 
-[node name="DevNote" type="Label" parent="."]
-texture_filter = 1
-offset_left = 24.0
-offset_top = -60.0
-offset_right = 811.0
-offset_bottom = 369.0
-scale = Vector2(0.25, 0.25)
-text = "DEV NOTE: HARRISON
-- Added Harpy Feather, one-use ranged weapon
-- Added corners to Red and Bone Tiles
-- Increased Knockback from Weapons
-- Added Specialized \"DamageDealer\" Script, which can set damage and knockback
-- Added outline for pickupables instead of highlight
-- Added Freeze-frame when attacking
-- Added Backgrounds
-- Added Weaponless Attack
-- Added Harpy Sprites"
-label_settings = SubResource("LabelSettings_qs7c1")
-autowrap_mode = 3
-
-[node name="DevNote2" type="Label" parent="."]
-texture_filter = 1
-offset_left = 259.0
-offset_top = -28.0
-offset_right = 1046.0
-offset_bottom = 401.0
-scale = Vector2(0.25, 0.25)
-text = "DEV NOTE: HARRISON
-CURRENTLY WORKING ON:
-- 3rd weapon
-- \"Enemy\" Sprites"
-label_settings = SubResource("LabelSettings_6qqx0")
-autowrap_mode = 3
-
 [node name="TotalEnemy" type="Node" parent="."]
 
 [node name="Enemy1" parent="TotalEnemy" instance=ExtResource("5_4cx8u")]
@@ -354,3 +321,6 @@ position = Vector2(1113, 118)
 
 [node name="Harpy7" parent="TotalEnemy" instance=ExtResource("9_6qqx0")]
 position = Vector2(1177, 352)
+
+[node name="DevilTail" parent="." instance=ExtResource("13_r0uqr")]
+position = Vector2(327, 148)

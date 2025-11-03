@@ -1,4 +1,4 @@
-[gd_scene load_steps=49 format=3 uid="uid://cpwk0qxaoinxg"]
+[gd_scene load_steps=47 format=3 uid="uid://cpwk0qxaoinxg"]
 
 [ext_resource type="Script" uid="uid://dgunar265por8" path="res://Game/Player/player.gd" id="1_yg8f4"]
 [ext_resource type="Texture2D" uid="uid://cwipu1yfxi81u" path="res://assets/player/player.png" id="2_hiq6t"]
@@ -147,10 +147,6 @@ initial_velocity_max = 276.47
 gravity = Vector3(0, 980, 0)
 alpha_curve = SubResource("CurveTexture_rfljk")
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_86ark"]
-atlas = ExtResource("12_q7ak8")
-region = Rect2(169.69952, 7.648718, 8.453354, 11.690819)
-
 [sub_resource type="AtlasTexture" id="AtlasTexture_q7ak8"]
 atlas = ExtResource("7_e0asf")
 region = Rect2(0, 0, 16, 16)
@@ -287,9 +283,6 @@ animations = [{
 "speed": 12.0
 }]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_ee8ni"]
-size = Vector2(75, 41)
-
 [node name="Player" type="CharacterBody2D"]
 collision_layer = 2
 collision_mask = 9
@@ -313,8 +306,9 @@ position = Vector2(0, -1)
 sprite_frames = SubResource("SpriteFrames_wv757")
 animation = &"flap"
 
-[node name="WeaponStates" type="Node2D" parent="."]
+[node name="WeaponStates" type="Node2D" parent="." node_paths=PackedStringArray("current_state")]
 script = ExtResource("3_cxpn3")
+current_state = NodePath("Tail")
 
 [node name="BreakEffect" type="Sprite2D" parent="WeaponStates"]
 visible = false
@@ -325,13 +319,6 @@ script = ExtResource("5_wv757")
 [node name="BreakBone" type="GPUParticles2D" parent="WeaponStates"]
 emitting = false
 texture = SubResource("AtlasTexture_18abf")
-one_shot = true
-explosiveness = 1.0
-process_material = SubResource("ParticleProcessMaterial_44npq")
-
-[node name="BreakTail" type="GPUParticles2D" parent="WeaponStates"]
-emitting = false
-texture = SubResource("AtlasTexture_86ark")
 one_shot = true
 explosiveness = 1.0
 process_material = SubResource("ParticleProcessMaterial_44npq")
@@ -407,8 +394,8 @@ script = ExtResource("6_vgjmx")
 knockback = 120.0
 
 [node name="Collision" type="CollisionShape2D" parent="WeaponStates/Tail/DamageDealer"]
-position = Vector2(23.5, -3.5)
-shape = SubResource("RectangleShape2D_ee8ni")
+position = Vector2(3, -3.5)
+shape = SubResource("RectangleShape2D_e0asf")
 disabled = true
 
 [node name="DamageInterval" type="Timer" parent="WeaponStates/Tail"]
