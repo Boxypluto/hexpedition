@@ -300,7 +300,6 @@ script = ExtResource("1_yg8f4")
 shape = SubResource("RectangleShape2D_8jpa7")
 
 [node name="Camera2D" type="Camera2D" parent="."]
-zoom = Vector2(2, 2)
 limit_bottom = 600
 limit_smoothed = true
 position_smoothing_enabled = true

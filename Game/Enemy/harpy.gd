@@ -20,12 +20,8 @@ func _process(delta: float) -> void:
 	move_x = lerp(float(move_x), 0.0, 1.0 / 55.0)
 	velocity.x = lerp(velocity.x, move_x, 1.0 / 200.0)
 	velocity.y += 500*delta;
-	if global_position.x == NAN:
-		global_position = Vector2(0,0)
-	if abs(velocity.y) > 250:
-		velocity.y = 250*(velocity.y/abs(velocity.y));
-	if abs(velocity.x) > 250:
-		velocity.x = 250*(velocity.x/abs(velocity.x));
+	velocity.y = clamp(velocity.y, -250, 250);
+	velocity.x = clamp(velocity.x, -250, 250);
 	if GlobalVariables.currentLevel.has_node("Player"):
 		var target= to_local(GlobalVariables.currentLevel.get_node("Player").global_position);
 		if target.length() > 200:
@@ -84,13 +80,13 @@ func _process(delta: float) -> void:
 		modulate= Color.html("#ffffff");
 	if health < 0 or global_position.y > 700 or global_position.y < -4000:
 		if GlobalVariables.currentLevel.has_node("Player"):
-			GlobalVariables.currentLevel.get_node("Player").health += 10;
-			if DropRandomiser.random_chance(4, 0.3):
-				var newfeather = feather.instantiate();
-				newfeather.global_position = global_position;
-				newfeather.linear_velocity = Vector2(randi_range(-50,50),-100);
-				newfeather.angular_velocity = randi_range(-20,20);
-				GlobalVariables.currentLevel.add_child(newfeather);
+			GlobalVariables.currentLevel.get_node("Player").health += 5;
+			#if DropRandomiser.random_chance(4, 0.3):
+			var newfeather = feather.instantiate();
+			newfeather.global_position = global_position;
+			newfeather.linear_velocity = Vector2(randi_range(-50,50),-100);
+			newfeather.angular_velocity = randi_range(-20,20);
+			GlobalVariables.currentLevel.add_child(newfeather);
 			queue_free();
 	if active:
 		for i in range(get_slide_collision_count()):

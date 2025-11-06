@@ -11,6 +11,7 @@ polygon = PackedVector2Array(0, 0, 7, 0, 7, 18, 0, 18)
 [node name="Imp" type="CharacterBody2D"]
 collision_layer = 8
 collision_mask = 11
+wall_min_slide_angle = 1.5707964
 script = ExtResource("1_xkvg1")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]

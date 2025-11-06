@@ -34,13 +34,9 @@ func _process(delta: float) -> void:
 	else:
 		velocity.x = lerp(velocity.x, 0.0, 1.0 / 50.0)
 	velocity.y += 500*delta;
-	if global_position.x == NAN:
-		global_position = Vector2(0,0);
 	# Max cap on velocity
-	if abs(velocity.y) > 250:
-		velocity.y = 250*(velocity.y/abs(velocity.y));
-	if abs(velocity.x) > 150:
-		velocity.x = 150*(velocity.x/abs(velocity.x));
+	velocity.y = clamp(velocity.y, -250, 250);
+	velocity.x = clamp(velocity.x, -150, 150);
 	if (Input.is_action_pressed("Right") or Input.is_action_pressed("Left")) and Input.is_action_pressed("Sprint")and is_on_floor() and stamina > 0:
 		stamina -= 0.01;
 		staminaRegen = 2;
