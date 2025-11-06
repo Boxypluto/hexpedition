@@ -1,4 +1,5 @@
 extends CharacterBody2D
+class_name Player
 
 @onready var animations: AnimatedSprite2D = $Animations
 @onready var weapon_machine: WeaponStateMachine = $WeaponStates

@@ -1,9 +1,18 @@
 extends Node2D
+class_name Level
+
+@export var player: Player
+@export var doors: Array[Door]
+
 var souls = 0;
+
 func _ready() -> void:
+	assert(player != null, "Level " + name + " does not have a player assigned!")
 	GlobalVariables.currentLevel = self;
-	souls = $TotalEnemy.get_child_count();
+	for door: Door in doors:
+		door.level = self
+
 func _process(delta: float) -> void:
-	if !has_node("Player"):
+	if player == null:
 		$deathCam.zoom.x += (1.5-$deathCam.zoom.x)/(50000.0*delta);
 		$deathCam.zoom.y = $deathCam.zoom.x;

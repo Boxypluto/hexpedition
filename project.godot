@@ -20,6 +20,7 @@ config/icon="res://icon.svg"
 GlobalVariables="*res://Game/global_variables.gd"
 Freeze="*res://Global/freeze.gd"
 DropRandomiser="*res://Global/drop_randomiser.gd"
+LevelLoader="*res://Global/level_loader.gd"
 
 [display]
 
