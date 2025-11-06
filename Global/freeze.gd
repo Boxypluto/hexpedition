@@ -7,6 +7,6 @@ func _ready() -> void:
 	freeze_timer.ignore_time_scale = true
 	freeze_timer.timeout.connect(func(): Engine.time_scale = 1.0)
 
-func frame(time: float = 0.05):
-	Engine.time_scale = 0.0
+func frame(time: float = 0.07):
+	Engine.time_scale = 0.1
 	freeze_timer.start(time)

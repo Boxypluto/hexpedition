@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cetlmphmfgwrt"
-path="res://.godot/imported/souls.png-2ae1b3309c9e3ad9972437e53c8117ee.ctex"
+uid="uid://b732o1nv3r85"
+path="res://.godot/imported/Game Over.svg-5993174ff38774d7596da756d50dff14.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/hud/souls.png"
-dest_files=["res://.godot/imported/souls.png-2ae1b3309c9e3ad9972437e53c8117ee.ctex"]
+source_file="res://Game/HUD/Game Over.svg"
+dest_files=["res://.godot/imported/Game Over.svg-5993174ff38774d7596da756d50dff14.ctex"]
 
 [params]
 
@@ -38,3 +38,6 @@ process/hdr_as_srgb=false
 process/hdr_clamp_exposure=false
 process/size_limit=0
 detect_3d/compress_to=1
+svg/scale=1.0
+editor/scale_with_editor_scale=false
+editor/convert_colors_with_editor_theme=false

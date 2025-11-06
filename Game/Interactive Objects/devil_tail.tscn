@@ -1,0 +1,56 @@
+[gd_scene load_steps=9 format=3 uid="uid://ls18cvjliwji"]
+
+[ext_resource type="Script" uid="uid://credaa611kp8c" path="res://Game/Interactive Objects/pickupable_weapon.gd" id="1_vgwtv"]
+[ext_resource type="Material" uid="uid://bcro3j2u4pdao" path="res://Game/Interactive Objects/normal_outline.tres" id="2_06sep"]
+[ext_resource type="Texture2D" uid="uid://cx6ul70tb3cg5" path="res://assets/player/weapons/tail_whip_pickupable.png" id="3_vgwtv"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_0qohl"]
+radius = 5.0
+height = 26.0
+
+[sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_0qohl"]
+polygon = PackedVector2Array(-13, -1, 13, -1, 13, 1, -13, 1)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vgwtv"]
+atlas = ExtResource("3_vgwtv")
+region = Rect2(0, 0, 32, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_06sep"]
+atlas = ExtResource("3_vgwtv")
+region = Rect2(32, 0, 32, 16)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_bgok6"]
+
+[node name="DevilTail" type="RigidBody2D" node_paths=PackedStringArray("outlined_node")]
+collision_layer = 4
+gravity_scale = 0.2
+script = ExtResource("1_vgwtv")
+id = &"Tail"
+outlined_node = NodePath("Sprite")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+rotation = 1.5707964
+shape = SubResource("CapsuleShape2D_0qohl")
+
+[node name="LightOccluder2D" type="LightOccluder2D" parent="."]
+occluder = SubResource("OccluderPolygon2D_0qohl")
+
+[node name="Sprite" type="Sprite2D" parent="."]
+material = ExtResource("2_06sep")
+position = Vector2(-1, 0)
+texture = SubResource("AtlasTexture_vgwtv")
+
+[node name="PinJoint2D" type="PinJoint2D" parent="."]
+node_a = NodePath("..")
+node_b = NodePath("../RigidBody2D")
+
+[node name="RigidBody2D" type="RigidBody2D" parent="."]
+
+[node name="Sprite2" type="Sprite2D" parent="RigidBody2D"]
+material = ExtResource("2_06sep")
+position = Vector2(13, 5)
+texture = SubResource("AtlasTexture_06sep")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="RigidBody2D"]
+shape = SubResource("CircleShape2D_bgok6")
+disabled = true

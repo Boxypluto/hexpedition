@@ -2,17 +2,18 @@ extends Area2D
 class_name DamageDealer
 
 @export var knockback: float = 50
-@export var damage: float = 25
+@export var damage: float = 30
 
 var has_hit: bool = false
 var last_damaged: Node = null
 
 func _ready():
+	if get_parent().name == "Weaponless":
+		damage = 5;
 	body_entered.connect(do_hit)
 
 func do_hit(other: Node2D):
 	if other.has_method(&"damage"):
-		print("HIT")
 		other.damage((other.global_position - global_position).normalized() * knockback, damage)
 		last_damaged = other
 		has_hit = true

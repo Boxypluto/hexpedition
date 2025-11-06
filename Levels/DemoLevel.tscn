@@ -1,14 +1,30 @@
-[gd_scene load_steps=14 format=4 uid="uid://duv5og2tyismn"]
+[gd_scene load_steps=22 format=4 uid="uid://duv5og2tyismn"]
 
-[ext_resource type="PackedScene" uid="uid://cpwk0qxaoinxg" path="res://Game/Player.tscn" id="1_ef5c4"]
+[ext_resource type="PackedScene" uid="uid://cpwk0qxaoinxg" path="res://Game/Player/Player.tscn" id="1_ef5c4"]
 [ext_resource type="TileSet" uid="uid://cprgho0y554r1" path="res://Testing/tiles_testing.tres" id="1_u4uqp"]
-[ext_resource type="Script" uid="uid://bp17ldrnhcv6c" path="res://Levels/demo_level.gd" id="1_x24b0"]
+[ext_resource type="Script" uid="uid://bp17ldrnhcv6c" path="res://Levels/level.gd" id="1_x24b0"]
+[ext_resource type="PackedScene" uid="uid://ckbmtnvwwag2j" path="res://Game/Base/door.tscn" id="2_8vs3g"]
 [ext_resource type="Script" uid="uid://gjkja6apmqy7" path="res://Game/HUD/hud.gd" id="2_d7cr2"]
+[ext_resource type="FontFile" uid="uid://2yhchrcjwdyo" path="res://Game/HUD/VT323-Regular.ttf" id="3_5kr3k"]
 [ext_resource type="PackedScene" uid="uid://bq7o3ic2mqrk7" path="res://Game/Interactive Objects/bone.tscn" id="3_8bwi6"]
-[ext_resource type="PackedScene" uid="uid://gld2ufh5qvny" path="res://Game/Enemy/Enemy.tscn" id="5_4cx8u"]
+[ext_resource type="Texture2D" uid="uid://cetlmphmfgwrt" path="res://Game/HUD/souls.png" id="3_x7rns"]
+[ext_resource type="Texture2D" uid="uid://b732o1nv3r85" path="res://Game/HUD/Game Over.svg" id="5_1w7pf"]
+[ext_resource type="PackedScene" uid="uid://gld2ufh5qvny" path="res://Game/Enemy/Imp.tscn" id="5_4cx8u"]
 [ext_resource type="Texture2D" uid="uid://d2wjlwi08va7p" path="res://assets/backgrounds/back_1.png" id="7_wpb74"]
+[ext_resource type="PackedScene" uid="uid://c71mflgirhu1p" path="res://Game/Interactive Objects/harpy_feather.tscn" id="8_qs7c1"]
+[ext_resource type="PackedScene" uid="uid://bsuapw1n770eq" path="res://Game/Enemy/Harpy.tscn" id="9_6qqx0"]
+[ext_resource type="PackedScene" uid="uid://ls18cvjliwji" path="res://Game/Interactive Objects/devil_tail.tscn" id="13_r0uqr"]
 
-[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_ef5c4"]
+[sub_resource type="LabelSettings" id="LabelSettings_qs7c1"]
+font_size = 32
+outline_size = 14
+outline_color = Color(0, 0, 0, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_6qqx0"]
+font_size = 32
+font_color = Color(0.9752112, 0.48786056, 0, 1)
+outline_size = 14
+outline_color = Color(0, 0, 0, 1)
 
 [sub_resource type="LabelSettings" id="LabelSettings_qs7c1"]
 font_size = 32
@@ -52,7 +68,7 @@ region = Rect2(0, 2160, 0, 720)
 atlas = ExtResource("7_wpb74")
 region = Rect2(0, 2880, 0, 720)
 
-[node name="DemoLevel" type="Node2D"]
+[node name="DemoLevel" type="Node2D" node_paths=PackedStringArray("player", "doors")]
 script = ExtResource("1_x24b0")
 metadata/_edit_horizontal_guides_ = [622.0]
 
@@ -140,7 +156,30 @@ offset_left = 2.0
 offset_top = 2.0
 offset_right = 213.0
 offset_bottom = 21.0
-color = Color(1, 0, 0, 1)
+color = Color(1, 0.029999971, 0.029999971, 1)
+
+[node name="Souls" type="Sprite2D" parent="HUD"]
+position = Vector2(1234, 41)
+texture = ExtResource("3_x7rns")
+
+[node name="Label" type="Label" parent="HUD/Souls"]
+offset_left = -128.0
+offset_top = -15.0
+offset_right = 96.0
+offset_bottom = 65.0
+scale = Vector2(0.465, 0.465)
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_outline_color = Color(0.16799998, 0.25200003, 0.42, 1)
+theme_override_constants/outline_size = 10
+theme_override_fonts/font = ExtResource("3_5kr3k")
+theme_override_font_sizes/font_size = 80
+text = "0/15"
+horizontal_alignment = 2
+
+[node name="GameOver" type="Sprite2D" parent="HUD"]
+position = Vector2(640, 360)
+scale = Vector2(0.965, 0.965)
+texture = ExtResource("5_1w7pf")
 
 [node name="deathCam" type="Camera2D" parent="."]
 enabled = false
@@ -150,8 +189,6 @@ limit_right = 10000009
 limit_bottom = 605
 limit_smoothed = true
 
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
 [node name="ColorRect" type="ColorRect" parent="."]
 visible = false
 material = SubResource("CanvasItemMaterial_ef5c4")
@@ -192,10 +229,6 @@ position = Vector2(144, 198)
 [node name="Enemy5" parent="." instance=ExtResource("5_4cx8u")]
 position = Vector2(165, 207)
 
-=======
->>>>>>> Stashed changes
-=======
->>>>>>> Stashed changes
 [node name="Backgrounds" type="Node2D" parent="."]
 z_index = -10
 
@@ -256,13 +289,7 @@ shadow_enabled = true
 position = Vector2(282, 196)
 
 [node name="Bone3" parent="." instance=ExtResource("3_8bwi6")]
-<<<<<<< Updated upstream
 position = Vector2(350, 186)
-=======
-position = Vector2(964, 145)
-
-[node name="HarpyFeather" parent="." instance=ExtResource("8_qs7c1")]
-position = Vector2(677, -46)
 
 [node name="TotalEnemy" type="Node" parent="."]
 
@@ -355,4 +382,6 @@ position = Vector2(1113, 118)
 
 [node name="Harpy7" parent="TotalEnemy" instance=ExtResource("9_6qqx0")]
 position = Vector2(1177, 352)
->>>>>>> Stashed changes
+
+[node name="DevilTail" parent="." instance=ExtResource("13_r0uqr")]
+position = Vector2(327, 148)

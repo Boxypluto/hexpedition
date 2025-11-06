@@ -1,0 +1,43 @@
+[gd_scene load_steps=7 format=3 uid="uid://ioxofyqat76o"]
+
+[ext_resource type="Script" uid="uid://hw1kn51kmpn8" path="res://Game/Player/harpy_feather_projectile.gd" id="1_ty4nh"]
+[ext_resource type="Texture2D" uid="uid://di6k3p6dkh6y6" path="res://assets/player/weapons/harpy_feather_thrown.png" id="1_ubu1r"]
+[ext_resource type="Script" uid="uid://cdwmtd1e7j5gn" path="res://Game/damage_dealer.gd" id="2_cjnv4"]
+[ext_resource type="Script" uid="uid://b6adlkrf1pi40" path="res://Game/Player/spin.gd" id="3_wivx5"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_cjnv4"]
+radius = 26.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_2c552"]
+radius = 15.0
+
+[node name="HarpyFeatherProjectile" type="CharacterBody2D"]
+collision_layer = 0
+collision_mask = 0
+script = ExtResource("1_ty4nh")
+
+[node name="HarpyFeatherThrown" type="Sprite2D" parent="."]
+texture = ExtResource("1_ubu1r")
+script = ExtResource("3_wivx5")
+
+[node name="DamageDealer" type="Area2D" parent="."]
+collision_layer = 0
+collision_mask = 8
+script = ExtResource("2_cjnv4")
+knockback = 25.0
+damage = 25.0
+metadata/_custom_type_script = "uid://cdwmtd1e7j5gn"
+
+[node name="DamageShape" type="CollisionShape2D" parent="DamageDealer"]
+shape = SubResource("CircleShape2D_cjnv4")
+debug_color = Color(0.9832186, 0, 0.35936567, 0.41960785)
+
+[node name="DamageTimer" type="Timer" parent="DamageDealer"]
+wait_time = 0.2
+autostart = true
+
+[node name="SolidCollision" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_2c552")
+
+[connection signal="hit" from="DamageDealer" to="." method="did_hit_thing"]
+[connection signal="timeout" from="DamageDealer/DamageTimer" to="." method="damage_cycle"]
