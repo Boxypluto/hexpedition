@@ -12,6 +12,7 @@ var knockback_multiplier: float = 8.0
 @onready var steer_left: RayCast2D = $SteeringRays/Left
 @onready var steer_right: RayCast2D = $SteeringRays/Right
 @onready var animations: AnimatedSprite2D = $Animations
+@onready var hit_flasher: HitFlasher = $HitFlasher
 
 const feather = preload("res://Game/Interactive Objects/harpy_feather.tscn")
 func _process(delta: float) -> void:
@@ -104,4 +105,5 @@ func damage(force: Vector2, h: int):
 	velocity.y -= 4;
 	if hitTimer < 0.24:
 		health -= h
+		hit_flasher.do_flash()
 	hitTimer = 0.25;

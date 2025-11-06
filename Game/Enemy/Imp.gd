@@ -10,6 +10,7 @@ var knockback_multiplier: float = 8.0
 
 @onready var steer_left: RayCast2D = $SteeringRays/Left
 @onready var steer_right: RayCast2D = $SteeringRays/Right
+@onready var hit_flasher: HitFlasher = $HitFlasher
 
 const bone = preload("res://Game/Interactive Objects/bone.tscn")
 func _process(delta: float) -> void:
@@ -80,9 +81,6 @@ func _process(delta: float) -> void:
 	move_and_slide();
 	if hitTimer > 0:
 		hitTimer-= delta;
-		modulate= Color.html("#ffaaaa");
-	else:
-		modulate= Color.html("#ffffff");
 	if health < 0 or global_position.y > 700 or global_position.y < -4000:
 		if GlobalVariables.currentLevel.has_node("Player"):
 			GlobalVariables.currentLevel.get_node("Player").health += 10;
@@ -100,9 +98,11 @@ func _process(delta: float) -> void:
 			if collider == GlobalVariables.currentLevel.get_node("Player"):
 				var direction = (GlobalVariables.currentLevel.get_node("Player").global_position - global_position).normalized()
 				GlobalVariables.currentLevel.get_node("Player").damage(direction * 50, 5)
+
 func damage(force: Vector2, h: int):
 	velocity.x += force.x * knockback_multiplier
 	velocity.y -= 4;
 	if hitTimer < 0.24:
 		health -= h
+		hit_flasher.do_flash()
 	hitTimer = 0.25;
