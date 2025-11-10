@@ -11,8 +11,3 @@ func _ready() -> void:
 	GlobalVariables.currentLevel = self;
 	for door: Door in doors:
 		door.level = self
-
-func _process(delta: float) -> void:
-	if player == null:
-		$deathCam.zoom.x += (1.5-$deathCam.zoom.x)/(50000.0*delta);
-		$deathCam.zoom.y = $deathCam.zoom.x;
