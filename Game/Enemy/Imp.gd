@@ -13,7 +13,16 @@ var knockback_multiplier: float = 8.0
 @onready var hit_flasher: HitFlasher = $HitFlasher
 
 const bone = preload("res://Game/Interactive Objects/bone.tscn")
-func _process(delta: float) -> void:
+const IMPIO = preload("uid://d0jryjoik87qx")
+
+@onready var sprite: Sprite2D = $Sprite
+
+func _ready() -> void:
+	var random: float = randf()
+	if random < 0.01:
+		sprite.texture = IMPIO
+
+func _physics_process(delta: float) -> void:
 	var limit_left: bool = steer_left.is_colliding()
 	var limit_right: bool = steer_right.is_colliding()
 	velocity.x = lerp(velocity.x, 0.0, 0.06666)

@@ -17,7 +17,7 @@ collision_mask = 11
 wall_min_slide_angle = 1.5707964
 script = ExtResource("1_xkvg1")
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
+[node name="Sprite" type="Sprite2D" parent="."]
 material = ExtResource("2_eqk6x")
 position = Vector2(4, 9)
 texture = ExtResource("2_qqkt2")
@@ -59,4 +59,4 @@ collide_with_areas = true
 
 [node name="HitFlasher" type="Timer" parent="." node_paths=PackedStringArray("to_flash")]
 script = ExtResource("4_eqk6x")
-to_flash = NodePath("../Sprite2D")
+to_flash = NodePath("../Sprite")
