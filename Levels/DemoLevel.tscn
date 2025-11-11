@@ -207,7 +207,7 @@ position = Vector2(-25, 191)
 [node name="Bone3" parent="." instance=ExtResource("3_8bwi6")]
 position = Vector2(964, 145)
 
-[node name="HarpyFeather" parent="." instance=ExtResource("8_qs7c1")]
+[node name="HarpyFeather" parent="." instance=ExtResource("9_6qqx0")]
 position = Vector2(31, 193)
 
 [node name="TotalEnemy" type="Node" parent="."]
