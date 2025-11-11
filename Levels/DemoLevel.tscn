@@ -11,7 +11,7 @@
 [ext_resource type="PackedScene" uid="uid://gld2ufh5qvny" path="res://Game/Enemy/Imp.tscn" id="5_4cx8u"]
 [ext_resource type="Texture2D" uid="uid://d2wjlwi08va7p" path="res://assets/backgrounds/back_1.png" id="7_wpb74"]
 [ext_resource type="PackedScene" uid="uid://bsuapw1n770eq" path="res://Game/Enemy/Harpy.tscn" id="9_6qqx0"]
-[ext_resource type="PackedScene" uid="uid://c71mflgirhu1p" path="res://Game/Interactive Objects/harpy_feather.tscn" id="13_8vs3g"]
+[ext_resource type="PackedScene" uid="uid://vudtt2kpduyt" path="res://Game/Enemy/Heavy.tscn" id="12_r0uqr"]
 [ext_resource type="PackedScene" uid="uid://ls18cvjliwji" path="res://Game/Interactive Objects/devil_tail.tscn" id="13_r0uqr"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_qs7c1"]
@@ -254,11 +254,8 @@ position = Vector2(1624, 122)
 [node name="Imp15" parent="TotalEnemy" instance=ExtResource("5_4cx8u")]
 position = Vector2(1656, 123)
 
-[node name="Bone2" parent="." instance=ExtResource("3_8bwi6")]
-position = Vector2(-25, 191)
-
-[node name="Bone3" parent="." instance=ExtResource("3_8bwi6")]
-position = Vector2(964, 145)
+[node name="Heavy" parent="TotalEnemy" instance=ExtResource("12_r0uqr")]
+position = Vector2(2035, 81)
 
 [node name="DevilTail" parent="." instance=ExtResource("13_r0uqr")]
 position = Vector2(81, 184)

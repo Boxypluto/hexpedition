@@ -1,0 +1,63 @@
+[gd_scene load_steps=7 format=3 uid="uid://vudtt2kpduyt"]
+
+[ext_resource type="Script" uid="uid://ctkymhs2vil6c" path="res://Game/Enemy/heavy.gd" id="1_ja0ft"]
+[ext_resource type="Material" uid="uid://cjrjv08u6feuo" path="res://Game/Enemy/enemy_flash_material.tres" id="2_wsnks"]
+[ext_resource type="Texture2D" uid="uid://bra0gwhmjpuwh" path="res://assets/enemies/imp.png" id="3_edasm"]
+[ext_resource type="Script" uid="uid://k8hfbh8gaa7v" path="res://Game/Enemy/hit_flasher.gd" id="4_0chs6"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_y5q7k"]
+size = Vector2(36, 50)
+
+[sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_83l4y"]
+polygon = PackedVector2Array(0, -21, 36, -21, 36, 29, 0, 29)
+
+[node name="Heavy" type="CharacterBody2D"]
+collision_layer = 8
+collision_mask = 3
+wall_min_slide_angle = 1.5707964
+script = ExtResource("1_ja0ft")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+material = ExtResource("2_wsnks")
+position = Vector2(17.999998, 4.000002)
+scale = Vector2(4.4999995, 3.1249998)
+texture = ExtResource("3_edasm")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(18, 4)
+shape = SubResource("RectangleShape2D_y5q7k")
+
+[node name="LightOccluder2D" type="LightOccluder2D" parent="."]
+occluder = SubResource("OccluderPolygon2D_83l4y")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+visible = false
+offset_right = 7.0
+offset_bottom = 18.0
+color = Color(0.83015114, 0.39168894, 0, 1)
+
+[node name="RayCast2D" type="RayCast2D" parent="."]
+target_position = Vector2(0, 0)
+collision_mask = 3
+collide_with_areas = true
+
+[node name="SteeringRays" type="Node2D" parent="."]
+
+[node name="Left" type="RayCast2D" parent="SteeringRays"]
+position = Vector2(0, 9)
+target_position = Vector2(-4, 0)
+collision_mask = 0
+
+[node name="Right" type="RayCast2D" parent="SteeringRays"]
+position = Vector2(36, 9)
+target_position = Vector2(4, 0)
+collision_mask = 0
+
+[node name="BigFallDetector" type="RayCast2D" parent="."]
+position = Vector2(15, 0)
+target_position = Vector2(0, 500)
+collide_with_areas = true
+
+[node name="HitFlasher" type="Timer" parent="." node_paths=PackedStringArray("to_flash")]
+script = ExtResource("4_0chs6")
+to_flash = NodePath("../Sprite2D")
