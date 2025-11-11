@@ -1,7 +1,9 @@
-[gd_scene load_steps=11 format=3 uid="uid://bsuapw1n770eq"]
+[gd_scene load_steps=13 format=3 uid="uid://bsuapw1n770eq"]
 
 [ext_resource type="Script" uid="uid://binsd66fi6phj" path="res://Game/Enemy/harpy.gd" id="1_e1fh4"]
+[ext_resource type="Material" uid="uid://cjrjv08u6feuo" path="res://Game/Enemy/enemy_flash_material.tres" id="2_2cwn1"]
 [ext_resource type="Texture2D" uid="uid://dcot56rjdwvya" path="res://assets/enemies/harpy.png" id="2_ualdc"]
+[ext_resource type="Script" uid="uid://k8hfbh8gaa7v" path="res://Game/Enemy/hit_flasher.gd" id="4_sel2n"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_y5q7k"]
 size = Vector2(13, 18)
@@ -82,12 +84,17 @@ collision_mask = 3
 collide_with_areas = true
 
 [node name="Animations" type="AnimatedSprite2D" parent="."]
+material = ExtResource("2_2cwn1")
 position = Vector2(7, 14)
 sprite_frames = SubResource("SpriteFrames_vj2hs")
 animation = &"Flap"
 autoplay = "Hang"
 frame = 3
 frame_progress = 0.67802906
+
+[node name="HitFlasher" type="Timer" parent="." node_paths=PackedStringArray("to_flash")]
+script = ExtResource("4_sel2n")
+to_flash = NodePath("../Animations")
 
 [node name="SteeringRays" type="Node2D" parent="."]
 

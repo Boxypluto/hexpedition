@@ -1,7 +1,7 @@
 extends WeaponState
 class_name WeaponStateFeather
 
-const HARPY_FEATHER_PROJECTILE = preload("uid://ioxofyqat76o")
+const HARPY_FEATHER_PROJECTILE = preload("res://Game/Player/harpy_feather_projectile.tscn")
 @onready var player: CharacterBody2D = $"../.."
 @onready var throw_point: Marker2D = $ThrowPoint
 

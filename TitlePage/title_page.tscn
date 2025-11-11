@@ -144,7 +144,7 @@ tile_map_data = PackedByteArray("AABUANj/AAADAAMAAABUANf/AAADAAIAAABUANb/AAADAAI
 tile_set = ExtResource("5_himvo")
 
 [node name="Harpy" parent="." instance=ExtResource("6_rj8eh")]
-position = Vector2(135, 778)
+position = Vector2(95, 602)
 
 [node name="Harpy2" parent="." instance=ExtResource("6_rj8eh")]
 position = Vector2(1029, 309)
@@ -153,4 +153,4 @@ position = Vector2(1029, 309)
 position = Vector2(378, 738)
 
 [node name="Imp2" parent="." instance=ExtResource("7_vtcd4")]
-position = Vector2(1506, 419)
+position = Vector2(1081, 342)

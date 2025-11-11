@@ -1,6 +1,9 @@
-[gd_scene load_steps=4 format=3 uid="uid://gld2ufh5qvny"]
+[gd_scene load_steps=7 format=3 uid="uid://gld2ufh5qvny"]
 
 [ext_resource type="Script" uid="uid://jviu3x2yrwiy" path="res://Game/Enemy/Imp.gd" id="1_xkvg1"]
+[ext_resource type="Material" uid="uid://cjrjv08u6feuo" path="res://Game/Enemy/enemy_flash_material.tres" id="2_eqk6x"]
+[ext_resource type="Texture2D" uid="uid://bra0gwhmjpuwh" path="res://assets/enemies/imp.png" id="2_qqkt2"]
+[ext_resource type="Script" uid="uid://k8hfbh8gaa7v" path="res://Game/Enemy/hit_flasher.gd" id="4_eqk6x"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_y5q7k"]
 size = Vector2(7, 18)
@@ -11,7 +14,13 @@ polygon = PackedVector2Array(0, 0, 7, 0, 7, 18, 0, 18)
 [node name="Imp" type="CharacterBody2D"]
 collision_layer = 8
 collision_mask = 11
+wall_min_slide_angle = 1.5707964
 script = ExtResource("1_xkvg1")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+material = ExtResource("2_eqk6x")
+position = Vector2(4, 9)
+texture = ExtResource("2_qqkt2")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(3.5, 9)
@@ -21,6 +30,7 @@ shape = SubResource("RectangleShape2D_y5q7k")
 occluder = SubResource("OccluderPolygon2D_83l4y")
 
 [node name="ColorRect" type="ColorRect" parent="."]
+visible = false
 offset_right = 7.0
 offset_bottom = 18.0
 color = Color(0.83015114, 0.39168894, 0, 1)
@@ -46,3 +56,7 @@ collision_mask = 0
 position = Vector2(15, 0)
 target_position = Vector2(0, 500)
 collide_with_areas = true
+
+[node name="HitFlasher" type="Timer" parent="." node_paths=PackedStringArray("to_flash")]
+script = ExtResource("4_eqk6x")
+to_flash = NodePath("../Sprite2D")
