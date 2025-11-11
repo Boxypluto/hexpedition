@@ -13,7 +13,7 @@ var knockback_multiplier: float = 8.0
 @onready var hit_flasher: HitFlasher = $HitFlasher
 
 const bone = preload("res://Game/Interactive Objects/bone.tscn")
-const IMPIO = preload("uid://d0jryjoik87qx")
+const IMPIO = preload("res://assets/enemies/impio.png")
 
 @onready var sprite: Sprite2D = $Sprite
 
