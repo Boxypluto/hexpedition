@@ -1,8 +1,9 @@
-[gd_scene load_steps=7 format=3 uid="uid://bq7o3ic2mqrk7"]
+[gd_scene load_steps=8 format=3 uid="uid://bq7o3ic2mqrk7"]
 
 [ext_resource type="Script" uid="uid://credaa611kp8c" path="res://Game/Interactive Objects/pickupable_weapon.gd" id="1_q6jtw"]
 [ext_resource type="Material" uid="uid://bcro3j2u4pdao" path="res://Game/Interactive Objects/normal_outline.tres" id="2_amg1x"]
 [ext_resource type="Texture2D" uid="uid://kmfcsei5enms" path="res://assets/player/weapons/bone.png" id="2_fs1tj"]
+[ext_resource type="Texture2D" uid="uid://cjf6morhojiyc" path="res://Game/Interactive Objects/PickUp.png" id="4_6u1h7"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_0qohl"]
 radius = 0.99999994
@@ -40,3 +41,10 @@ occluder = SubResource("OccluderPolygon2D_0qohl")
 material = ExtResource("2_amg1x")
 rotation = 0.7853982
 texture = SubResource("AtlasTexture_amg1x")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+
+[node name="PickUp" type="Sprite2D" parent="."]
+position = Vector2(0, -16)
+scale = Vector2(0.94117653, 1)
+texture = ExtResource("4_6u1h7")
