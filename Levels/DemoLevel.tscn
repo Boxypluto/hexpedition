@@ -237,7 +237,7 @@ position = Vector2(798, -179)
 position = Vector2(668, 45)
 
 [node name="Harpy4" parent="TotalEnemy" instance=ExtResource("9_6qqx0")]
-position = Vector2(1031, 178)
+position = Vector2(1025, 175)
 
 [node name="Harpy5" parent="TotalEnemy" instance=ExtResource("9_6qqx0")]
 position = Vector2(1163, -58)
