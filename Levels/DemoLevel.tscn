@@ -13,6 +13,7 @@
 [ext_resource type="PackedScene" uid="uid://bsuapw1n770eq" path="res://Game/Enemy/Harpy.tscn" id="9_6qqx0"]
 [ext_resource type="PackedScene" uid="uid://vudtt2kpduyt" path="res://Game/Enemy/Heavy.tscn" id="12_r0uqr"]
 [ext_resource type="PackedScene" uid="uid://ls18cvjliwji" path="res://Game/Interactive Objects/devil_tail.tscn" id="13_r0uqr"]
+[ext_resource type="PackedScene" uid="uid://c71mflgirhu1p" path="res://Game/Interactive Objects/harpy_feather.tscn" id="13_8vs3g"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_qs7c1"]
 atlas = ExtResource("7_wpb74")
