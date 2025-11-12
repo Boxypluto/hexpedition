@@ -3,6 +3,7 @@ class_name Player
 
 @onready var animations: AnimatedSprite2D = $Animations
 @onready var weapon_machine: WeaponStateMachine = $WeaponStates
+@onready var duability_indicator: DurabilityIndicator = $"../HUD/Control/DuabilityIndicator"
 
 # flytimer controls the time between each flap
 # stamina controls how many flaps until out

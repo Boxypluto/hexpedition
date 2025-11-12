@@ -3,6 +3,7 @@ class_name Level
 
 @export var player: Player
 @export var doors: Array[Door]
+@onready var hud: CanvasLayer = $HUD
 
 var souls = 0;
 

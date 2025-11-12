@@ -10,6 +10,8 @@ class_name WeaponStateMachine
 			new.enter()
 @onready var animations: AnimatedSprite2D = $"../Animations"
 
+@onready var player: Player = $".."
+
 func swap_to_id(id: StringName):
 	for state in get_children():
 		if state is not WeaponState: continue
@@ -30,7 +32,12 @@ func do_action():
 func _physics_process(delta: float) -> void:
 	weaponless_process()
 	if current_state == null:
+		player.duability_indicator.self_modulate.a = 0.0
 		return
+	if current_state is WeaponStateFeather:
+		player.duability_indicator.self_modulate.a = 0.0
+	else:
+		player.duability_indicator.durability = current_state.durability
 	current_state.physics_update(delta)
 
 # WEAPON LESS STATE --- DO NOT ADD OTHER STATES TO THIS FILE! INSTEAD ADD THEM AS CHILD NOTED WHICH INHERIT "WeaponState"!

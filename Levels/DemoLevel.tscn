@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=4 uid="uid://duv5og2tyismn"]
+[gd_scene load_steps=24 format=4 uid="uid://duv5og2tyismn"]
 
 [ext_resource type="PackedScene" uid="uid://cpwk0qxaoinxg" path="res://Game/Player/Player.tscn" id="1_ef5c4"]
 [ext_resource type="TileSet" uid="uid://cprgho0y554r1" path="res://Testing/tiles_testing.tres" id="1_u4uqp"]
@@ -9,10 +9,25 @@
 [ext_resource type="Texture2D" uid="uid://cetlmphmfgwrt" path="res://Game/HUD/souls.png" id="3_x7rns"]
 [ext_resource type="Texture2D" uid="uid://b732o1nv3r85" path="res://Game/HUD/Game Over.svg" id="5_1w7pf"]
 [ext_resource type="PackedScene" uid="uid://gld2ufh5qvny" path="res://Game/Enemy/Imp.tscn" id="5_4cx8u"]
+[ext_resource type="Texture2D" uid="uid://cxk6nun3w4qt1" path="res://assets/player/weapons/durability.png" id="6_s84ir"]
+[ext_resource type="Script" uid="uid://c4wgwsp8u3fnr" path="res://Game/HUD/durability_indicator.gd" id="7_2wrgo"]
 [ext_resource type="Texture2D" uid="uid://d2wjlwi08va7p" path="res://assets/backgrounds/back_1.png" id="7_wpb74"]
+[ext_resource type="Texture2D" uid="uid://dmcn5l8hsy5tj" path="res://assets/player/weapons/durability_break.png" id="8_2wrgo"]
 [ext_resource type="PackedScene" uid="uid://bsuapw1n770eq" path="res://Game/Enemy/Harpy.tscn" id="9_6qqx0"]
 [ext_resource type="PackedScene" uid="uid://c71mflgirhu1p" path="res://Game/Interactive Objects/harpy_feather.tscn" id="13_8vs3g"]
 [ext_resource type="PackedScene" uid="uid://ls18cvjliwji" path="res://Game/Interactive Objects/devil_tail.tscn" id="13_r0uqr"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xko7b"]
+atlas = ExtResource("6_s84ir")
+region = Rect2(0, 0, 64, 64)
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_xko7b"]
+particle_flag_disable_z = true
+emission_shape_scale = Vector3(1, 48, 1)
+spread = 180.0
+initial_velocity_min = 40.0
+initial_velocity_max = 40.0
+gravity = Vector3(0, 98, 0)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_qs7c1"]
 atlas = ExtResource("7_wpb74")
@@ -113,6 +128,27 @@ horizontal_alignment = 2
 position = Vector2(640, 360)
 scale = Vector2(0.965, 0.965)
 texture = ExtResource("5_1w7pf")
+
+[node name="Control" type="Control" parent="HUD"]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="DuabilityIndicator" type="Sprite2D" parent="HUD/Control"]
+position = Vector2(57, 76)
+scale = Vector2(2, 2)
+texture = SubResource("AtlasTexture_xko7b")
+script = ExtResource("7_2wrgo")
+
+[node name="BreakParticles" type="GPUParticles2D" parent="HUD/Control/DuabilityIndicator"]
+emitting = false
+texture = ExtResource("8_2wrgo")
+lifetime = 2.0
+one_shot = true
+speed_scale = 4.0
+explosiveness = 1.0
+process_material = SubResource("ParticleProcessMaterial_xko7b")
 
 [node name="deathCam" type="Camera2D" parent="."]
 enabled = false

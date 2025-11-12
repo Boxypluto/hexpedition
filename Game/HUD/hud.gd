@@ -1,5 +1,7 @@
 extends CanvasLayer
 
+@onready var duability_indicator: DurabilityIndicator = $Control/DuabilityIndicator
+
 func _process(_delta: float) -> void:
 	$Souls/Label.text = str(abs(get_parent().get_node("TotalEnemy").get_child_count()-get_parent().souls))+"/"+str(get_parent().souls);
 	if get_parent().has_node("Player"):
