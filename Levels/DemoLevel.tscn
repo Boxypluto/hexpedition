@@ -297,11 +297,11 @@ position = Vector2(1163, -58)
 [node name="Harpy6" parent="TotalEnemy" instance=ExtResource("9_6qqx0")]
 position = Vector2(1559, 15)
 
-[node name="Heavy" parent="TotalEnemy" instance=ExtResource("14_vmj0w")]
-position = Vector2(2022, 75)
-
 [node name="Harpy7" parent="TotalEnemy" instance=ExtResource("9_6qqx0")]
 position = Vector2(1653, 22)
+
+[node name="Heavy" parent="TotalEnemy" instance=ExtResource("14_vmj0w")]
+position = Vector2(2022, 75)
 
 [node name="Bone2" parent="." instance=ExtResource("3_8bwi6")]
 position = Vector2(-25, 191)
