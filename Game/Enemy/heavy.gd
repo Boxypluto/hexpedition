@@ -1,4 +1,3 @@
-@ -1,119 +0,0 @@
 extends CharacterBody2D
 
 var health = 350;
